@@ -4,8 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/background_check_out.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/continue_background.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/ic_baseline_border_color_24.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
         <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/search_icon_drawable.xml" value="0.1" />
         <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/tab_color_selector.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
         <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/fragment_category.xml" value="0.12771739130434784" />
         <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/fragment_new_in.xml" value="0.12771739130434784" />
