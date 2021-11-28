@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_margin="1dp"
+    card_view:cardCornerRadius="4dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:strokeWidth="1dp"
+    app:cardElevation="0dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/image_product"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="5dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/img_1" />
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:maxLines = "2"
+            android:textColor="@color/analytics_item_text"
+            android:text="Test"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="23dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_gravity="center"
+                android:text="Giá gốc"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_countdown"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:paddingVertical="3dp"
+                android:background="@drawable/background_check_out"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="3dp"
+                android:text="- 50%"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_discount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="Giá discount"
+                android:textColor="@color/product_vision_text2"
+                android:textSize="15sp" />
+
+            <RatingBar
+                android:id="@+id/rating_bar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/text_rate"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="2.6"
+                android:stepSize="0.1"
+                android:theme="@style/RatingBar" />
+
+            <TextView
+                android:id="@+id/text_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Sao"
+                android:textColor="@color/background_button_default"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

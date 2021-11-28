@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/background_check_out.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/search_icon_drawable.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/tab_color_selector.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/fragment_category.xml" value="0.12771739130434784" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/fragment_new_in.xml" value="0.12771739130434784" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/fragment_user.xml" value="0.12771739130434784" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/home_bar.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/item_home_product.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/item_place_holder.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/view_home_article.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/menu/bottom_navigation_items.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

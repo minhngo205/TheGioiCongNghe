@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_bdg_gray"
+    >
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        shimmer:duration="800">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:weightSum="2"
+            android:columnCount="2">
+
+            <include
+                android:layout_columnWeight=".50"
+                layout="@layout/item_place_holder"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp" />
+            <include
+                android:layout_columnWeight=".50"
+                layout="@layout/item_place_holder"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp" />
+            <include
+                android:layout_columnWeight=".50"
+                layout="@layout/item_place_holder"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp" />
+            <include
+                android:layout_columnWeight=".50"
+                layout="@layout/item_place_holder"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp" />
+            <include
+                android:layout_columnWeight=".50"
+                layout="@layout/item_place_holder"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp" />
+            <include
+                android:layout_columnWeight=".50"
+                layout="@layout/item_place_holder"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp" />
+        </GridLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_new_in"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="6dp"
+        android:overScrollMode="never"
+        tools:listitem="@layout/item_home_product"/>
+
+</RelativeLayout>

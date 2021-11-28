@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+  >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                android:id="@+id/card_banner">
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/pager_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:id="@+id/layout_dot"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"/>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_new"
+                android:layout_below="@+id/card_banner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/home_ads"/>
+            </androidx.cardview.widget.CardView>
+
+            <include
+                android:id="@+id/layout_article"
+                android:layout_below="@+id/card_new"
+                layout="@layout/view_home_article"
+                android:layout_height="300dp"
+                android:layout_width="match_parent"
+                android:visibility="gone"/>
+
+
+            <TextView
+                android:id="@+id/tv_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_article"
+                android:gravity="center"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:text="RECENTLY VIEWED"
+                android:textColor="@color/switch_kit_tip"
+                android:textSize="14sp"
+                android:visibility="gone"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_product"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tv_history"
+                android:background="@color/white"
+                android:overScrollMode="never"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_recommendation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/recycler_product"
+                android:gravity="center"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:text="@string/recommendation"
+                android:textColor="@color/switch_kit_tip"
+                android:textSize="14sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tv_recommendation"
+                android:orientation="vertical">
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_view_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    shimmer:duration="800">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:weightSum="2"
+                        android:columnCount="2">
+
+                        <include
+                            android:layout_columnWeight=".50"
+                            layout="@layout/item_place_holder"
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp" />
+                        <include
+                            android:layout_columnWeight=".50"
+                            layout="@layout/item_place_holder"
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp" />
+                        <include
+                            android:layout_columnWeight=".50"
+                            layout="@layout/item_place_holder"
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp" />
+                        <include
+                            android:layout_columnWeight=".50"
+                            layout="@layout/item_place_holder"
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp" />
+                        <include
+                            android:layout_columnWeight=".50"
+                            layout="@layout/item_place_holder"
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp" />
+                        <include
+                            android:layout_columnWeight=".50"
+                            layout="@layout/item_place_holder"
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp" />
+                    </GridLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_recommendation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="never"
+                    android:layout_marginHorizontal="6dp"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</FrameLayout>

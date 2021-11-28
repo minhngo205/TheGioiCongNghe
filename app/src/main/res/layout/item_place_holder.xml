@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_margin="1dp"
+    android:layout_weight="1"
+    card_view:cardCornerRadius="4dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:strokeWidth="1dp"
+    app:cardElevation="0dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/image_product"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:layout_gravity="center"
+            android:background="@color/placeholder_bg"/>
+
+        <View
+            android:id="@+id/text_name"
+            android:layout_width="200dp"
+            android:layout_height="16sp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:layout_margin="@dimen/tab_5dp"
+            android:maxLines = "2"
+            android:textSize="16sp"
+            android:background="@color/placeholder_bg"/>
+
+        <View
+            android:id="@+id/tv_price"
+            android:layout_width="150dp"
+            android:layout_height="16sp"
+            android:layout_marginStart="5dp"
+            android:background="@color/placeholder_bg"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/tv_discount"
+                android:layout_width="150dp"
+                android:layout_height="16dp"
+                android:layout_margin="5dp"
+                android:background="@color/placeholder_bg"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/rating_bar"
+                android:layout_width="100dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/text_rate"
+                android:background="@color/placeholder_bg"/>
+
+            <View
+                android:id="@+id/text_rate"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:gravity="center"
+                android:padding="2dp"
+                android:background="@color/placeholder_bg"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
