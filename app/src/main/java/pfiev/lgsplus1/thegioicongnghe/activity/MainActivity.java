@@ -1,8 +1,10 @@
-package pfiev.lgsplus1.thegioicongnghe;
+package pfiev.lgsplus1.thegioicongnghe.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import pfiev.lgsplus1.thegioicongnghe.R;
 
 public class MainActivity extends AppCompatActivity {
 

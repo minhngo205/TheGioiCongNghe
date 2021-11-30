@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Multishop</string>
+    <string name="app_name">Thế giới công nghệ</string>
 
     <!-- Drawer Left -->
-    <string name="sparkle_store">Multishop</string>
-    <string name="drawer_des">Khám phá những thiết bị gaming tốt nhất cùng Multishop</string>
+    <string name="sparkle_store">Thế giới công nghệ</string>
+    <string name="drawer_des">Khám phá những thiết bị gaming tốt nhất cùng Thế giới công nghệ</string>
     <string name="drawer_sign_in"><u><![CDATA[ĐĂNG NHẬP > ]]></u></string>
     <string name="drawer_scan">QUÉT QR THANH TOÁN</string>
     <string name="drawer_account">THÔNG TIN TÀI KHOẢN</string>
