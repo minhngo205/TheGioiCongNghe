@@ -64,5 +64,6 @@
     <string name="order_center_order_number">Mã đơn hàng: %d</string>
     <string name="order_center_pending_payment_time">Chưa xác nhận</string>
     <string name="order_center_total">"%d sản phẩm, Tổng đơn: "</string>
+    <string name="welcome_user">Xin chào: %s</string>
 
 </resources>
