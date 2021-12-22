@@ -21,9 +21,11 @@ public class SearchResultActivity extends BaseActivity implements View.OnClickLi
         setContentView(mBinding.getRoot());
 
         Intent intent = getIntent();
-        if(null != intent) {
+        if(null != intent){
             searchContent = intent.getStringExtra("SEARCH_CONTENT");
         }
+        mViewModel = new SearchResultViewModel(this);
+        mViewModel.initView();
     }
 
     public ActivitySearchResultBinding getBinding() {
