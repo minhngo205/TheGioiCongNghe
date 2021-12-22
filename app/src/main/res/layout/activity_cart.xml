@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activity.CartActivity">
+
+    <include
+        android:id="@+id/title_order_evaluation"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:id="@+id/layout_login_first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/textview_border_shape"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="@color/red_type_1"
+            android:text="@string/string_login_first" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llNoItems"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imgCart"
+            android:layout_width="310dp"
+            android:layout_height="158dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/empty_cart" />
+
+        <TextView
+            style="@style/Heading"
+            android:text="@string/llb_no_items_in_your_cart"
+            android:textSize="@dimen/font_size_normal" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShopNow"
+            style="@style/MaterialButtonStyle.Filled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_standard_new"
+            android:paddingStart="@dimen/spacing_large"
+            android:paddingEnd="@dimen/spacing_large"
+            android:text="@string/lbl_shop_now"
+            android:textSize="@dimen/font_size_small" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_shopping_cart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="6dp"
+        android:layout_weight="2"
+        android:scrollbars="none"
+        tools:listitem="@layout/item_shoppingcart_list" />
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <CheckBox
+            android:id="@+id/checkBox_all_select"
+            style="@style/MyCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="18dp"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Chọn tất cả"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/no"
+            android:layout_toStartOf="@id/no"
+            android:text="Tổng cộng:"
+            android:textColor="@color/black"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:layout_toStartOf="@id/textView_pay"
+            android:paddingVertical="1.5dp"
+            android:textColor="#FF3C3D"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textView_actual_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/no"
+            android:layout_alignEnd="@+id/no"
+            android:gravity="center"
+            android:paddingVertical="1.5dp"
+            android:text="1"
+            android:textColor="#FF3C3D"
+            android:textSize="20sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textView_pay"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/background_check_out"
+            android:gravity="center"
+            android:text="Thanh toán"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textView_delete"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/background_delete_bag_item"
+            android:gravity="center"
+            android:text="Xoá"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

@@ -3,14 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/background_delete_bag_item.xml" value="0.13518518518518519" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/bg_ractangal.xml" value="0.13518518518518519" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/bg_ractangal_stroked.xml" value="0.13518518518518519" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/ic_add.xml" value="0.13518518518518519" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/ic_baseline_border_color_24.xml" value="0.13518518518518519" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/ic_remove.xml" value="0.13518518518518519" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/select_position_bgd.xml" value="0.13518518518518519" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/shape_background_eeeaeb.xml" value="0.13518518518518519" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/drawable/textview_border_shape.xml" value="0.13518518518518519" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/background_delete_bag_item.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/item_shoppingcart_list.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/textview_border_shape.xml" value="0.1" />
+        <entry key="..\:/Nam5/HK1/LapTrinhMobile/TheGioiCongNghe/app/src/main/res/layout/toolbar.xml" value="0.1" />
         <entry key="..\:/Other/AndroidProject/TheGioiCongNghe/app/src/main/res/drawable-v24/background_dialog.xml" value="0.23385416666666667" />
         <entry key="..\:/Other/AndroidProject/TheGioiCongNghe/app/src/main/res/drawable-v24/bg_rounded_border_edittext.xml" value="0.3712962962962963" />
         <entry key="..\:/Other/AndroidProject/TheGioiCongNghe/app/src/main/res/drawable-v24/checkbox_style_selector.xml" value="0.3712962962962963" />
         <entry key="..\:/Other/AndroidProject/TheGioiCongNghe/app/src/main/res/drawable-v24/ic_star_black.xml" value="0.3712962962962963" />
         <entry key="..\:/Other/AndroidProject/TheGioiCongNghe/app/src/main/res/drawable/progress_bar_loading.xml" value="0.23385416666666667" />
-        <entry key="..\:/Other/AndroidProject/TheGioiCongNghe/app/src/main/res/layout/activity_product_detail.xml" value="0.3651041666666667" />
         <entry key="..\:/Other/AndroidProject/TheGioiCongNghe/app/src/main/res/layout/diag_base.xml" value="0.3859375" />
-        <entry key="..\:/Other/AndroidProject/TheGioiCongNghe/app/src/main/res/layout/fragment_user.xml" value="0.18768996960486323" />
         <entry key="..\:/Other/AndroidProject/TheGioiCongNghe/app/src/main/res/layout/item_home_product.xml" value="0.3859375" />
       </map>
     </option>
