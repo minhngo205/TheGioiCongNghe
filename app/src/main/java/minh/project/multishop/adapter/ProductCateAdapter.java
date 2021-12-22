@@ -19,7 +19,6 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import minh.project.multishop.R;
-import minh.project.multishop.activity.ProductDetailActivity;
 import minh.project.multishop.models.Product;
 
 public class ProductCateAdapter extends RecyclerView.Adapter<ProductCateAdapter.MyViewHolder> {
