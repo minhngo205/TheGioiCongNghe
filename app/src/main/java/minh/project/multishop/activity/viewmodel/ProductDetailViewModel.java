@@ -1,5 +1,7 @@
 package minh.project.multishop.activity.viewmodel;
 
+import static minh.project.multishop.utils.CurrencyFormat.currencyFormat;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -19,10 +21,24 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 
+import minh.project.multishop.R;
+import minh.project.multishop.activity.CartActivity;
+import minh.project.multishop.activity.OrderSubmitActivity;
 import minh.project.multishop.activity.ProductDetailActivity;
+import minh.project.multishop.adapter.ProductViewPagerAdapter;
 import minh.project.multishop.base.BaseActivityViewModel;
+import minh.project.multishop.database.entity.User;
+import minh.project.multishop.database.repository.UserDBRepository;
 import minh.project.multishop.databinding.ActivityProductDetailBinding;
+import minh.project.multishop.databinding.DialogCartBuyLayoutBinding;
+import minh.project.multishop.models.Image;
+import minh.project.multishop.models.OrderItem;
 import minh.project.multishop.models.Product;
+import minh.project.multishop.models.ProductSpecs;
+import minh.project.multishop.network.IAppAPI;
+import minh.project.multishop.network.RetroInstance;
+import minh.project.multishop.network.dtos.DTORequest.EditCartRequest;
+import minh.project.multishop.network.repository.CartRepository;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

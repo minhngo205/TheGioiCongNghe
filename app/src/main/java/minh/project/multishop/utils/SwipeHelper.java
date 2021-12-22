@@ -93,13 +93,11 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
         this.buttonBuffer = new HashMap<>();
         this.buttonWidth = buttonWidth;
 
-        removeQueue = new LinkedList() {
+        removeQueue = new LinkedList<Integer>() {
             @Override
-            public boolean add(Object o) {
-                if(contains(o))
-                    return false;
-                else
-                    return super.add(o);
+            public boolean add(Integer integer) {
+                if(contains(integer)) return false;
+                else return super.add(integer);
             }
         };
 
@@ -126,7 +124,7 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
         private RectF clickRegion;
         private final MyButtonClickListener listener;
         private final Context context;
-        private final Resources resources;
+//        private final Resources resources;
 
 
         public MyButton(Context context, int imageResId, int color, MyButtonClickListener listener) {
@@ -134,7 +132,7 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
             this.imageResId = imageResId;
             this.color = color;
             this.listener = listener;
-            this.resources = context.getResources();
+//            this.resources = context.getResources();
         }
 
         public boolean onClick(float x, float y)  {
@@ -152,16 +150,16 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
             c.drawRect(rectF, p);
             p.setColor(Color.WHITE);
 
-            Rect r = new Rect();
-            float cHeight  = rectF.height();
-            float cWidth = rectF.width();
+//            Rect r = new Rect();
+//            float cHeight  = rectF.height();
+//            float cWidth = rectF.width();
             p.setTextAlign(Paint.Align.LEFT);
 
             Drawable d = ContextCompat.getDrawable(context, imageResId);
             Bitmap bitmap = drawableToBitmap(d);
 
-            float bw = bitmap.getWidth()/2;
-            float bh = bitmap.getHeight()/2;
+            float bw = bitmap.getWidth()/2f;
+            float bh = bitmap.getHeight()/2f;
             c.drawBitmap(bitmap, ((rectF.left+rectF.right)/2)-bw, ((rectF.top+rectF.bottom)/2 - bh), p);
 
             clickRegion =  rectF;
@@ -201,7 +199,7 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
         recoverSwipedItem();
     }
 
-    public float getSwipeThreshold(RecyclerView.ViewHolder viewHolder) {
+    public float getSwipeThreshold(@NonNull RecyclerView.ViewHolder viewHolder) {
         return swipeThreshold;
     }
 
@@ -228,7 +226,7 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
 
             if(dX < 0) {
 
-                List buffer = new ArrayList<>();
+                List<MyButton> buffer = new ArrayList<>();
                 if(!buttonBuffer.containsKey(pos)) {
                     instantiateMyButton(viewHolder, buffer);
                     buttonBuffer.put(pos, buffer);
@@ -253,5 +251,5 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
         }
     }
 
-    public abstract void instantiateMyButton(RecyclerView.ViewHolder viewHolder, List buffer);
+    public abstract void instantiateMyButton(RecyclerView.ViewHolder viewHolder, List<MyButton> buffer);
 }

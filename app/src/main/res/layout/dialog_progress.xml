@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/spacing_middle"
+        android:layout_marginTop="@dimen/spacing_control_half"
+        android:layout_marginEnd="@dimen/spacing_middle"
+        android:layout_marginBottom="@dimen/spacing_control_half"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/red_type_1"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/progress_bg"/>
+
+        <TextView
+            android:id="@+id/progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/spacing_control"
+            android:paddingStart="@dimen/spacing_control"
+            android:paddingEnd="@dimen/spacing_control"
+            android:text="Loading..."
+            android:textColor="@color/red_type_2"
+            android:textSize="@dimen/font_size_small"
+            tools:ignore="MissingPrefix" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
