@@ -136,4 +136,5 @@
     <color name="timestamp">#777</color>
     <color name="yellow">#FED76D</color>
     <color name="view_color">#eaeaea</color>
+    <color name="common_line_color">#D9D9D9</color>
 </resources>
