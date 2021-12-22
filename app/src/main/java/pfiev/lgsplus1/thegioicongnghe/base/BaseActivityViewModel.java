@@ -24,4 +24,6 @@ public abstract class BaseActivityViewModel<T extends BaseActivity> {
      * @param viewId Control ID
      */
     public abstract void onClickEvent(int viewId);
+
+
 }
