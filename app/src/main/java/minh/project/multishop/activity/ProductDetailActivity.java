@@ -1,6 +1,5 @@
 package minh.project.multishop.activity;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +8,7 @@ import minh.project.multishop.activity.viewmodel.ProductDetailViewModel;
 import minh.project.multishop.base.BaseActivity;
 import minh.project.multishop.databinding.ActivityProductDetailBinding;
 
-public class ProductDetailActivity extends BaseActivity {
+public class ProductDetailActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "ProductDetailActivity";
 
