@@ -68,7 +68,7 @@ public class SearchContentLayout extends ViewGroup {
         }
         setMeasuredDimension(
                 modeWidth == MeasureSpec.EXACTLY ? sizeWidth : width + getPaddingLeft() + getPaddingRight(),
-                modeHeight == MeasureSpec.EXACTLY ? sizeWidth : height + getPaddingTop() + getPaddingBottom()
+                modeHeight == MeasureSpec.EXACTLY ? sizeHeight : height + getPaddingTop() + getPaddingBottom()
         );
 
     }
@@ -140,7 +140,7 @@ public class SearchContentLayout extends ViewGroup {
                 int lc = left + lp.leftMargin;
                 int tc = top + lp.topMargin;
                 int rc = lc + child.getMeasuredWidth();
-                int bc = tc + child.getMeasuredWidth();
+                int bc = tc + child.getMeasuredHeight();
 
                 child.layout(lc, tc, rc, bc);
 
