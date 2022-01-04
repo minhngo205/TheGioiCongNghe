@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/spacing_standard_new"
+    android:layout_marginEnd="@dimen/spacing_standard_new"
+    android:layout_marginBottom="@dimen/spacing_standard_new"
+    android:background="@drawable/bg_rectangle_order"
+    android:orientation="vertical">
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_bdg_gray" />
+
+    <TextView
+        style="@style/Heading"
+        android:paddingStart="@dimen/spacing_standard_new"
+        android:paddingTop="@dimen/spacing_standard"
+        android:paddingEnd="@dimen/spacing_standard_new"
+        android:paddingBottom="@dimen/spacing_standard"
+        android:text="Lựa chọn hình thức thanh toán"
+        android:textColor="@color/textColorPrimary" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_bdg_gray" />
+
+    <RadioGroup
+        android:id="@+id/payment_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/cash_methode"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginStart="16dp"
+            style="@style/MyCheckBox"
+            android:checked="true"
+            android:drawablePadding="11dp"
+            android:paddingStart="11dp"
+            android:drawableStart="@drawable/ic_money_flat_icon"
+            android:text="Thanh toán khi nhận hàng"
+            android:textColor="@color/payment_select_text3"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/momo_methode"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginStart="16dp"
+            style="@style/MyCheckBox"
+            android:drawableStart="@drawable/ic_momo_2"
+            android:drawablePadding="11dp"
+            android:paddingStart="11dp"
+            android:text="Thông qua ví MoMo"
+            android:textColor="@color/payment_select_text3"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_bdg_gray" />
+    </RadioGroup>
+
+</LinearLayout>
