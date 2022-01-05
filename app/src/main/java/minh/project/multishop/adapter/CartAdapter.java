@@ -1,7 +1,5 @@
 package minh.project.multishop.adapter;
 
-import static minh.project.multishop.utils.CurrencyFormat.currencyFormat;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -12,18 +10,17 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
-
-import java.util.List;
-
 import minh.project.multishop.R;
 import minh.project.multishop.activity.ProductDetailActivity;
 import minh.project.multishop.models.CartItem;
 import minh.project.multishop.utils.OnItemModifyListener;
+
+import java.util.List;
+
+import static minh.project.multishop.utils.CurrencyFormat.currencyFormat;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> {
 

@@ -3,7 +3,6 @@ package minh.project.multishop.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import minh.project.multishop.activity.viewmodel.SearchResultViewModel;
 import minh.project.multishop.base.BaseActivity;
 import minh.project.multishop.databinding.ActivitySearchResultBinding;

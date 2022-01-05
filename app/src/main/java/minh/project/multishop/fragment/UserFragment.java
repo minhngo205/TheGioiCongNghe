@@ -4,10 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import minh.project.multishop.base.BaseFragment;
 import minh.project.multishop.databinding.FragmentUserBinding;
 import minh.project.multishop.fragment.fragmentviewmodel.UserFragmentViewModel;

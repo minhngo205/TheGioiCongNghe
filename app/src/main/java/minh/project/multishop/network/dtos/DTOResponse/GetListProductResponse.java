@@ -1,12 +1,10 @@
 package minh.project.multishop.network.dtos.DTOResponse;
 
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
-
 import minh.project.multishop.models.Product;
 import minh.project.multishop.network.dtos.DTOmodels.DTOLink;
 
+import java.util.List;
 
 public class GetListProductResponse {
     @SerializedName("links")

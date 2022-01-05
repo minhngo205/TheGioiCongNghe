@@ -1,9 +1,5 @@
 package minh.project.multishop.activity.viewmodel;
 
-import static minh.project.multishop.base.BaseDialog.CANCEL_BUTTON;
-import static minh.project.multishop.base.BaseDialog.CONFIRM_BUTTON;
-import static minh.project.multishop.base.BaseDialog.CONTENT;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,21 +10,22 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import minh.project.multishop.R;
 import minh.project.multishop.activity.SearchActivity;
 import minh.project.multishop.activity.SearchResultActivity;
 import minh.project.multishop.base.BaseActivityViewModel;
-import minh.project.multishop.base.BaseDialog;
 import minh.project.multishop.database.entity.SearchHistory;
 import minh.project.multishop.database.repository.ProductDBRepository;
 import minh.project.multishop.database.repository.SearchHistoryRepository;
 import minh.project.multishop.databinding.ActivitySearchBinding;
 import minh.project.multishop.databinding.LayoutSearchContentBinding;
+import minh.project.multishop.dialog.BaseDialog;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static minh.project.multishop.dialog.BaseDialog.*;
 
 public class SearchViewModel extends BaseActivityViewModel<SearchActivity> {
     private static final int MAX_SIZE = 10;

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.ordercentre.CancelFragment">
+
+    <RelativeLayout
+        android:id="@+id/no_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_noItem"
+            android:layout_width="200dp"
+            android:layout_height="270dp"
+            android:src="@mipmap/img_no_order"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/spacing_standard"
+            android:layout_below="@+id/iv_noItem"
+            android:layout_centerHorizontal="true"
+            style="@style/Heading"
+            android:text="@string/llb_no_items_in_order_center"
+            android:textSize="@dimen/font_size_normal" />
+    </RelativeLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/layout_refresh_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cancel_orders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="never" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</FrameLayout>

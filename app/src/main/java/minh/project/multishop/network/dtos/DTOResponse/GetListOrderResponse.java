@@ -1,9 +1,8 @@
 package minh.project.multishop.network.dtos.DTOResponse;
 
-import java.util.List;
-
 import minh.project.multishop.network.dtos.DTOmodels.DTOLink;
 
+import java.util.List;
 
 public class GetListOrderResponse {
     public DTOLink links;

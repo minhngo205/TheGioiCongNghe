@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
-
 import minh.project.multishop.base.BaseFragment;
 import minh.project.multishop.databinding.FragmentCategoryBinding;
 import minh.project.multishop.fragment.fragmentviewmodel.CategoryFragmentViewModel;

@@ -9,7 +9,6 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
@@ -34,7 +33,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/spacing_xlarge">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/ivProfileImage"
                         android:layout_width="@dimen/_110sdp"
                         android:layout_height="@dimen/_110sdp"
@@ -169,20 +168,6 @@
                     android:text="Lưu thông tin"
                     android:textSize="@dimen/font_size_medium" />
 
-                <!--            <com.google.android.material.button.MaterialButton-->
-                <!--                android:id="@+id/btnChangePassword"-->
-                <!--                style="@style/MaterialButtonStyle.Stroked"-->
-                <!--                android:layout_width="match_parent"-->
-                <!--                android:layout_height="wrap_content"-->
-                <!--                android:layout_marginStart="@dimen/spacing_standard_new"-->
-                <!--                android:layout_marginEnd="@dimen/spacing_standard_new"-->
-                <!--                android:layout_marginBottom="@dimen/spacing_standard"-->
-                <!--                android:text="@string/lbl_change_pswd"-->
-                <!--                android:textColor="@color/textColorPrimary"-->
-                <!--                android:visibility="gone"-->
-                <!--                android:textSize="@dimen/font_size_medium"-->
-                <!--                app:strokeColor="@color/editText_background" />-->
-
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDeactivate"
                     style="@style/MaterialButtonStyle.Stroked"
@@ -201,70 +186,3 @@
 
     </RelativeLayout>
 </layout>
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginTop="@dimen/spacing_xxlarge">-->
-
-    <!--<EditText-->
-    <!--    android:id="@+id/edtFirstName"-->
-    <!--    style="@style/FieldRounded"-->
-    <!--    android:inputType="textCapWords"-->
-    <!--    android:layout_marginEnd="@dimen/spacing_control"-->
-    <!--    android:layout_weight="0.5"-->
-    <!--    android:hint="Họ và tên"-->
-    <!--    android:text="@{userInfo.name}"-->
-    <!--    android:gravity="start"-->
-    <!--    android:singleLine="true" />-->
-    <!--<TextView-->
-    <!--    android:text="Họ và tên"-->
-    <!--    style="@style/TextInputLayoutStyle" />-->
-
-    <!--<EditText-->
-    <!--    android:id="@+id/edtBirthDay"-->
-    <!--    style="@style/FieldRounded"-->
-    <!--    android:inputType="textCapWords"-->
-    <!--    android:gravity="start"-->
-    <!--    android:layout_marginStart="@dimen/spacing_control"-->
-    <!--    android:layout_weight="1"-->
-    <!--    android:hint="Ngày sinh"-->
-    <!--    android:text="@{userInfo.dob}"-->
-    <!--    android:singleLine="true"-->
-    <!--    android:clickable="false"-->
-    <!--    android:cursorVisible="false"-->
-    <!--    android:focusable="false"-->
-    <!--    android:focusableInTouchMode="false"/>-->
-
-    <!--</LinearLayout>-->
-
-    <!--<EditText-->
-    <!--android:id="@+id/edtAddress"-->
-    <!--style="@style/FieldRounded"-->
-    <!--android:layout_marginTop="@dimen/spacing_middle"-->
-    <!--android:hint="Địa chỉ"-->
-    <!--android:text="@{userInfo.address}"-->
-    <!--android:maxEms="12"-->
-    <!--android:gravity="start"-->
-    <!--android:maxLength="12" />-->
-
-    <!--<EditText-->
-    <!--android:id="@+id/edtMobileNo"-->
-    <!--style="@style/FieldRounded"-->
-    <!--android:layout_marginTop="@dimen/spacing_middle"-->
-    <!--android:hint="Số điện thoại"-->
-    <!--android:text="@{userInfo.phone_number}"-->
-    <!--android:inputType="number"-->
-    <!--android:visibility="visible"-->
-    <!--android:maxEms="12"-->
-    <!--android:gravity="start"-->
-    <!--android:maxLength="12" />-->
-
-    <!--<EditText-->
-    <!--android:id="@+id/edtEmail"-->
-    <!--style="@style/FieldRounded"-->
-    <!--android:layout_marginTop="@dimen/spacing_middle"-->
-    <!--android:hint="Email"-->
-    <!--android:text="@{userInfo.email}"-->
-    <!--android:gravity="start"-->
-    <!--android:inputType="textEmailAddress" />-->

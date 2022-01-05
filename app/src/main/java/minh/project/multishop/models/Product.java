@@ -98,6 +98,10 @@ public class Product {
         return category;
     }
 
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     public int getProductPrice() {
         return productPrice;
     }
@@ -108,6 +112,10 @@ public class Product {
 
     public Brand getBrand() {
         return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 
     public List<ProductSpecs> getSpecs() {
@@ -152,5 +160,9 @@ public class Product {
 
     public Image[] getImageList() {
         return listImages;
+    }
+
+    public void setImageList(Image[] imageList) {
+        this.listImages = imageList;
     }
 }

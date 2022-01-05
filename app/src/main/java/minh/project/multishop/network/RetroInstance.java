@@ -1,11 +1,11 @@
 package minh.project.multishop.network;
 
-import static minh.project.multishop.utils.Statistics.BASE_URL;
-
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static minh.project.multishop.utils.Statistics.BASE_URL;
 
 public class RetroInstance {
 

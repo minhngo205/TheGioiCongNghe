@@ -4,16 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
-
 import minh.project.multishop.base.BaseFragment;
 import minh.project.multishop.databinding.FragmentHomeBinding;
 import minh.project.multishop.fragment.fragmentviewmodel.HomeFragmentViewModel;
 
 public class HomeFragment extends BaseFragment {
 
-    private static final String TAG = "HomeFragment";
     private FragmentHomeBinding homeBinding;
     private final HomeFragmentViewModel homeViewModel;
 

@@ -6,17 +6,13 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import minh.project.multishop.adapter.BrandSpinnerAdapter;
 import minh.project.multishop.adapter.CategoryAdapter;
 import minh.project.multishop.adapter.ProductCateAdapter;
 import minh.project.multishop.base.BaseFragmentViewModel;
@@ -31,6 +27,9 @@ import minh.project.multishop.network.dtos.DTOResponse.GetListProductResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryFragmentViewModel extends BaseFragmentViewModel<CategoryFragment> {
     private static final String TAG = "CategoryFragment";
@@ -52,6 +51,8 @@ public class CategoryFragmentViewModel extends BaseFragmentViewModel<CategoryFra
     private MutableLiveData<List<Category>> liveCateData;
     private MutableLiveData<List<Product>> liveProdData;
     private final IAppAPI api;
+
+    private static final Brand defaultBrand = new Brand(-1,"Hãng sản xuất");
 
     public LiveData<List<Category>> getListCategory(){
         if(liveCateData==null){
@@ -160,15 +161,21 @@ public class CategoryFragmentViewModel extends BaseFragmentViewModel<CategoryFra
                 return;
             }
             categoryList.addAll(categories);
+            initBrandSpinner(categoryList.get(showPosition).getBrandList());
             adapter.notifyDataSetChanged();
         });
     }
 
     private void initBrandSpinner(List<Brand> brandList) {
-        List<String> brands = new ArrayList<>();
-        brands.add("(Tất cả)");
-        for(Brand b : brandList) brands.add(b.getBrandName());
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(mFragment.getContext(), android.R.layout.simple_spinner_item,brands);
+        List<Brand> brands = new ArrayList<>();
+        brands.add(defaultBrand);
+        brands.addAll(brandList);
+        ArrayAdapter<Brand> adapter = new BrandSpinnerAdapter(mFragment.requireContext(), android.R.layout.simple_spinner_item,brands);
+
+//        List<String> brands = new ArrayList<>();
+//        brands.add("Hãng sản xuất");
+//        for(Brand b : brandList) brands.add(b.getBrandName());
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(mFragment.getContext(), android.R.layout.simple_spinner_item,brands);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mBinding.spinnerBrand.setAdapter(adapter);
@@ -193,7 +200,7 @@ public class CategoryFragmentViewModel extends BaseFragmentViewModel<CategoryFra
         }
 
         Adapter adapter = adapterView.getAdapter();
-        String search = (String) adapter.getItem(position);
+        String search = ((Brand) adapter.getItem(position)).getBrandName();
 
         List<Product> searchedProducts = queryByBrandName(search);
         productCateAdapter.setProductList(searchedProducts);

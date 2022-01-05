@@ -1,10 +1,9 @@
 package minh.project.multishop.models;
 
-import java.util.Date;
-
 import minh.project.multishop.database.entity.UserInfo;
 import minh.project.multishop.utils.DateConverter;
 
+import java.util.Date;
 
 public class UserProfile {
     private int id;

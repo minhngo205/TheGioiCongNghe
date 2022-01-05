@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/item_product"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_dialog"
+    android:layout_margin="@dimen/spacing_control_half"
+    app:cardElevation="1dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/iv_product"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:src="@mipmap/img_1"
+                app:riv_corner_radius="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tên sản phẩm"
+                    android:ellipsize="end"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="18sp"
+                    android:maxLines="2"/>
+
+                <TextView
+                    android:id="@+id/product_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giá sản phẩm"
+                    android:textColor="@color/text_color_type_1"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/tv_sale_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giá sản phẩm"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/red"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginTop="10dp">-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/iv_product"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignTop="@id/tv_title"-->
+<!--        android:layout_alignBottom="@+id/tv_price"-->
+<!--        android:adjustViewBounds="true"-->
+<!--        android:maxWidth="120dp"-->
+<!--        android:maxHeight="120dp"-->
+<!--        android:minWidth="100dp"-->
+<!--        android:minHeight="100dp"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tv_title"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_toEndOf="@+id/iv_product"-->
+<!--        android:ellipsize="end"-->
+<!--        android:lines="2"-->
+<!--        android:padding="8dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="16sp"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tv_price"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/tv_title"-->
+<!--        android:layout_toEndOf="@+id/iv_product"-->
+<!--        android:padding="8dp"-->
+<!--        android:textColor="@color/red"-->
+<!--        android:textSize="16sp"/>-->
+<!--</RelativeLayout>-->

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
-
 import minh.project.multishop.R;
 import minh.project.multishop.activity.viewmodel.MainActivityViewModel;
 import minh.project.multishop.base.BaseActivity;

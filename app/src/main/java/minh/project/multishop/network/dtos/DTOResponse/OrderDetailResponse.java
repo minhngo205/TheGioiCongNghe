@@ -1,15 +1,13 @@
 package minh.project.multishop.network.dtos.DTOResponse;
 
 import com.google.gson.annotations.SerializedName;
+import minh.project.multishop.models.OrderItem;
+import minh.project.multishop.models.Payment;
+import minh.project.multishop.network.dtos.DTOmodels.DTOOrderItemResponse;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import minh.project.multishop.models.OrderItem;
-import minh.project.multishop.network.dtos.DTOmodels.DTOOrderItemResponse;
-import minh.project.multishop.network.dtos.DTOmodels.Payment;
-
 
 public class OrderDetailResponse {
     @SerializedName("id")
@@ -41,8 +39,8 @@ public class OrderDetailResponse {
     @SerializedName("items")
     public List<DTOOrderItemResponse> orderItemResponses;
 
-    public List<OrderItem> castToModelList(){
-        List<OrderItem> result = new ArrayList<>();
+    public ArrayList<OrderItem> castToModelList(){
+        ArrayList<OrderItem> result = new ArrayList<>();
         for (DTOOrderItemResponse itemResponse : orderItemResponses){
             result.add(itemResponse.castToModel());
         }

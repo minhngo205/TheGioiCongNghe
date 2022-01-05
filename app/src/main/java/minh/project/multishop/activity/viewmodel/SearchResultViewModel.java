@@ -5,11 +5,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
-
-import java.util.List;
-
 import minh.project.multishop.R;
 import minh.project.multishop.activity.SearchResultActivity;
 import minh.project.multishop.adapter.SearchResultAdapter;
@@ -17,6 +13,8 @@ import minh.project.multishop.base.BaseActivityViewModel;
 import minh.project.multishop.databinding.ActivitySearchResultBinding;
 import minh.project.multishop.models.Product;
 import minh.project.multishop.network.repository.ProductNetRepository;
+
+import java.util.List;
 
 public class SearchResultViewModel extends BaseActivityViewModel<SearchResultActivity> {
     private static final String TAG = SearchResultViewModel.class.getSimpleName();

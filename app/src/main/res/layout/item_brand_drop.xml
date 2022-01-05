@@ -1,0 +1,18 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_30sdp"
+    android:paddingLeft="@dimen/spacing_standard"
+    android:paddingRight="@dimen/spacing_standard">
+
+    <TextView
+        android:id="@+id/tvBrand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_standard"
+        android:layout_centerVertical="true"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="18sp"
+        tools:text="Hãng sản xuất"/>
+</RelativeLayout>

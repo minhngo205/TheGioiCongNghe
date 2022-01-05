@@ -1,401 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_gravity="start"
-    android:background="@mipmap/banner_left"
-    android:orientation="vertical">
+    android:background="#F7F8FC">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_welcome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tv_user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:text="@string/welcome_user"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Thành viên"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_user_name"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tv_user_name"
-            app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
-
-        <ImageView
-            android:id="@+id/iv_head"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:src="@mipmap/head_load"
-            app:layout_constraintBottom_toBottomOf="@+id/textView5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_user_name" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="20dp">
+        android:padding="30dp">
 
         <TextView
-            android:id="@+id/tv_drawer_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/sparkle_store"
-            android:textColor="@color/drawer_text_color2"
-            android:textSize="24sp"
-            android:textStyle="bold">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/tv_drawer_des"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="16dp"
-            android:layout_below="@+id/tv_drawer_title"
-            android:gravity="center"
-            android:text="@string/drawer_des"
-            android:textColor="@color/drawer_text_color2"
-            android:textSize="14sp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/tv_sign_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_drawer_des"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/button_background"
-            android:padding="10dp"
-            android:text="@string/drawer_sign_in"
-            android:textColor="@color/red_type_2" />
-
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/lv_left"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/drawer_layout_bgd"
-        android:orientation="vertical">
+            style="@style/viewParent.headerText"
+            android:text="Tài khoản" />
 
         <RelativeLayout
-            android:id="@+id/lv_scan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_welcome">
 
-            <ImageView
-                android:id="@+id/iv_scan"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:padding="8dp"
-                android:src="@mipmap/left_scan" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileCircleImageView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/head_load"
+                app:civ_border_color="@color/colorAccent"
+                app:civ_border_width="2dp" />
 
             <TextView
-                android:id="@+id/tv_scan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/iv_scan"
-                android:layout_alignBottom="@+id/iv_scan"
-                android:layout_toEndOf="@+id/iv_scan"
-                android:gravity="start|center"
-                android:text="@string/drawer_scan"
-                android:textColor="@color/drawer_text_color1"
-                android:textSize="14sp" />
+                android:id="@+id/tv_user_name"
+                style="@style/viewParent.headerText"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@id/profileCircleImageView"
+                android:text="@string/welcome_user"
+                android:textSize="18sp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/iv_scan"
-                android:layout_toEndOf="@+id/iv_scan"
-                android:background="@color/drawer_line_bgd" />
+            <TextView
+                android:id="@+id/tv_user_info"
+                style="@style/viewParent.headerText"
+                android:layout_below="@id/tv_user_name"
+                android:layout_toEndOf="@id/profileCircleImageView"
+                android:text="Chỉnh sửa thông tin"
+                android:textColor="#5D5C5C"
+                android:textSize="16sp" />
+
+            <ImageView
+                style="@style/viewParent"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/lv_account"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/iv_account"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:padding="8dp"
-                android:src="@mipmap/left_my_account" />
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="#F7F8FC">
 
             <TextView
-                android:id="@+id/tv_account"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/iv_account"
-                android:layout_alignBottom="@+id/iv_account"
-                android:layout_toEndOf="@+id/iv_account"
-                android:gravity="start|center"
-                android:text="@string/drawer_account"
-                android:textColor="@color/drawer_text_color1"
-                android:textSize="14sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/iv_account"
-                android:layout_toEndOf="@+id/iv_account"
-                android:background="@color/drawer_line_bgd" />
+                android:gravity="center"
+                android:id="@+id/tv_sign_in"
+                style="@style/profileStyledBackButton"
+                android:text="@string/drawer_sign_in"
+                android:textColor="@color/white" />
         </RelativeLayout>
 
-        <RelativeLayout
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/darkModeSwitch"
+            style="@style/settingsText"
+            android:drawableStart="@drawable/ic_dark_mode"
+            android:minHeight="48dp"
+            android:text="Dark Mode" />
+
+        <TextView
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="Mua hàng"/>
+
+        <TextView
             android:id="@+id/lv_bag"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:text="@string/drawer_bag"
+            app:drawableLeftCompat="@drawable/ic_cart" />
 
-            <ImageView
-                android:id="@+id/iv_bag"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:padding="8dp"
-                android:src="@mipmap/left_bag" />
-
-            <TextView
-                android:id="@+id/tv_bag"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/iv_bag"
-                android:layout_alignBottom="@+id/iv_bag"
-                android:layout_toEndOf="@+id/iv_bag"
-                android:gravity="start|center"
-                android:text="@string/drawer_bag"
-                android:textColor="@color/drawer_text_color1"
-                android:textSize="14sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/iv_bag"
-                android:layout_toEndOf="@+id/iv_bag"
-                android:background="@color/drawer_line_bgd" />
-        </RelativeLayout>
-
-        <RelativeLayout
+        <TextView
             android:id="@+id/lv_order"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:layout_marginTop="10dp"
+            android:text="@string/drawer_order"
+            app:drawableLeftCompat="@drawable/ic_order" />
 
-            <ImageView
-                android:id="@+id/iv_order"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:padding="8dp"
-                android:src="@mipmap/left_order" />
+        <TextView
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="Cài đặt"/>
 
-            <TextView
-                android:id="@+id/tv_order"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/iv_order"
-                android:layout_alignBottom="@+id/iv_order"
-                android:layout_toEndOf="@+id/iv_order"
-                android:gravity="start|center"
-                android:text="@string/drawer_order"
-                android:textColor="@color/drawer_text_color1"
-                android:textSize="14sp" />
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            style="@style/settingsText"
+            android:checked="true"
+            android:drawableStart="@drawable/ic_notifications"
+            android:minHeight="48dp"
+            android:text="THÔNG BÁO" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/iv_order"
-                android:layout_toEndOf="@+id/iv_order"
-                android:background="@color/drawer_line_bgd" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/lv_save"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/iv_save"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:padding="8dp"
-                android:src="@mipmap/product_unsaved" />
-
-            <TextView
-                android:id="@+id/tv_save"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/iv_save"
-                android:layout_alignBottom="@+id/iv_save"
-                android:layout_toEndOf="@+id/iv_save"
-                android:gravity="start|center"
-                android:text="@string/drawer_save"
-                android:textColor="@color/drawer_text_color1"
-                android:textSize="14sp" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="6dp"
-            android:background="@color/drawer_line_bgd" />
-
-        <RelativeLayout
-            android:id="@+id/lv_set"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/iv_set"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:padding="8dp"
-                android:src="@mipmap/left_setting" />
-
-            <TextView
-                android:id="@+id/tv_set"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/iv_set"
-                android:layout_alignBottom="@+id/iv_set"
-                android:layout_toEndOf="@+id/iv_set"
-                android:gravity="start|center"
-                android:text="@string/drawer_set"
-                android:textColor="@color/drawer_text_color1"
-                android:textSize="14sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/iv_set"
-                android:layout_toEndOf="@+id/iv_set"
-                android:background="@color/drawer_line_bgd" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/lv_offline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/iv_offline"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:padding="8dp"
-                android:src="@mipmap/left_shop" />
-
-            <TextView
-                android:id="@+id/tv_offline"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/iv_offline"
-                android:layout_alignBottom="@+id/iv_offline"
-                android:layout_toEndOf="@+id/iv_offline"
-                android:gravity="start|center"
-                android:text="@string/drawer_offline"
-                android:textColor="@color/drawer_text_color1"
-                android:textSize="14sp" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="6dp"
-            android:background="@color/drawer_line_bgd" />
-
-        <RelativeLayout
+        <TextView
             android:id="@+id/lv_contact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:text="@string/drawer_contact"
+            app:drawableLeftCompat="@drawable/ic_about_us" />
 
-            <ImageView
-                android:id="@+id/iv_contact"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:padding="8dp"
-                android:src="@mipmap/left_contact" />
+        <TextView
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="Tài khoản"/>
 
-            <TextView
-                android:id="@+id/tv_contact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/iv_contact"
-                android:layout_alignBottom="@+id/iv_contact"
-                android:layout_toEndOf="@+id/iv_contact"
-                android:gravity="start|center"
-                android:text="@string/drawer_contact"
-                android:textColor="@color/drawer_text_color1"
-                android:textSize="14sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/iv_contact"
-                android:layout_toEndOf="@+id/iv_contact"
-                android:background="@color/drawer_line_bgd" />
-        </RelativeLayout>
-
-        <RelativeLayout
+        <TextView
             android:id="@+id/lv_out"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:text="@string/drawer_out"
+            app:drawableLeftCompat="@drawable/ic_logout" />
 
-            <ImageView
-                android:id="@+id/iv_out"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:padding="8dp"
-                android:src="@mipmap/left_out" />
 
-            <TextView
-                android:id="@+id/tv_out"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/iv_out"
-                android:layout_alignBottom="@+id/iv_out"
-                android:layout_toEndOf="@+id/iv_out"
-                android:gravity="start|center"
-                android:text="@string/drawer_out"
-                android:textColor="@color/drawer_text_color1"
-                android:textSize="14sp" />
+        <TextView
+            android:id="@+id/tv_version"
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="@string/string_version"
+            android:textAlignment="center"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/iv_out"
-                android:layout_toEndOf="@+id/iv_out"
-                android:background="@color/drawer_line_bgd" />
-        </RelativeLayout>
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

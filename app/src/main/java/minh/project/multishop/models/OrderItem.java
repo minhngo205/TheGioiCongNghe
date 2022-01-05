@@ -2,7 +2,6 @@ package minh.project.multishop.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import minh.project.multishop.network.dtos.DTOmodels.DTOOrderItemRequest;
 
 public class OrderItem implements Parcelable {

@@ -5,15 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
-
 import com.bumptech.glide.Glide;
-
 import minh.project.multishop.R;
 import minh.project.multishop.models.Image;
-
 
 public class ProductViewPagerAdapter extends PagerAdapter {
 

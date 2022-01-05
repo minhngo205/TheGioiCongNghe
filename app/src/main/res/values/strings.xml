@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Thế giới công nghệ</string>
+    <string name="app_name">Multishop</string>
 
     <!-- Drawer Left -->
-    <string name="sparkle_store">Thế giới công nghệ</string>
-    <string name="drawer_des">Khám phá những thiết bị gaming tốt nhất cùng Thế giới công nghệ</string>
-    <string name="drawer_sign_in"><u><![CDATA[ĐĂNG NHẬP > ]]></u></string>
+    <string name="sparkle_store">Multishop</string>
+    <string name="drawer_des">Khám phá những thiết bị gaming tốt nhất cùng Multishop</string>
+    <string name="drawer_sign_in"><u><![CDATA[ĐĂNG NHẬP NGAY ]]></u></string>
     <string name="drawer_scan">QUÉT QR THANH TOÁN</string>
     <string name="drawer_account">THÔNG TIN TÀI KHOẢN</string>
     <string name="drawer_bag">GIỎ HÀNG</string>
@@ -24,7 +24,7 @@
     <string name="title_catalogue">Danh mục</string>
     <string name="title_new_in">Khuyến mãi</string>
     <string name="recommendation">Gợi ý cho bạn</string>
-    <string name="sys_integrity_detecting">Detecting...</string>
+    <string name="sys_integrity_detecting">Detecting…</string>
     <string name="sys_integrity_detect_success">System integrity is OK</string>
     <string name="welcome">Welcome</string>
     <string name="first_press_back">Nhấn quay lại lần nữa để thoát</string>
@@ -37,7 +37,7 @@
     <string name="current_position">%d/%d</string>
     <string name="product_color">Loại sản phẩm</string>
     <string name="product_version">Hãng sản xuất</string>
-    <string name="product_capacity">Capacity</string>
+    <string name="product_capacity">Chi tiết sản phẩm</string>
     <string name="product_count">Số lượng</string>
     <string name="product_send">Mô tả</string>
     <string name="product_address">Locating</string>
@@ -51,7 +51,7 @@
     <string name="Specs_head">Thông số kỹ thuật</string>
     <string name="cart">Giỏ hàng</string>
     <!-- CatalogueFragment -->
-    <string name="no_product">No product available.</string>
+    <string name="no_product">Không có sản phẩm nào.</string>
 
     <string name="cancel">Huỷ</string>
     <string name="confirm">Xác nhận</string>
@@ -65,5 +65,22 @@
     <string name="order_center_pending_payment_time">Chưa xác nhận</string>
     <string name="order_center_total">"%d sản phẩm, Tổng đơn: "</string>
     <string name="welcome_user">Xin chào: %s</string>
+    <string name="already_rate">Đã đánh giá: %s</string>
+    <string name="title_rate_product">Đánh giá sản phẩm</string>
+    <string name="check_delete_history">Bạn có chắc chắn muốn xoá lịch sử tìm kiếm ?</string>
+    <string name="llb_no_items_in_order_center">\"Hổng\" có đơn nào cả !!!</string>
+    <string name="order_center_cancel_order">Huỷ đơn</string>
+    <string name="order_center_confirm_cancel_order">Bạn có chắc chắn muốn huỷ đơn hàng ?</string>
+    <string name="order_cancel_infor">Đơn hàng: %d</string>
+    <string name="cancel_time">Đã huỷ: %s</string>
+    <string name="string_version">Phiên bản %s</string>
 
+    <string-array name="search_hot">
+        <item>Laptop Asus</item>
+        <item>Di động Samsung</item>
+        <item>Smart Tivi</item>
+        <item>Đồng hồ thông minh</item>
+        <item>Kính thực tế ảo</item>
+        <item>LG</item>
+    </string-array>
 </resources>

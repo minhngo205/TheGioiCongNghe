@@ -1,6 +1,8 @@
 package minh.project.multishop.models;
 
 import com.google.gson.annotations.SerializedName;
+import minh.project.multishop.network.dtos.DTOmodels.DTOComment;
+import minh.project.multishop.network.dtos.DTOmodels.DTOUser;
 
 import java.util.Date;
 import java.util.List;

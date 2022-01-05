@@ -1,34 +1,12 @@
 package minh.project.multishop.network;
 
-import java.util.List;
-
-import minh.project.multishop.models.CartItem;
-import minh.project.multishop.models.Category;
-import minh.project.multishop.models.Product;
-import minh.project.multishop.models.Rating;
-import minh.project.multishop.models.UserProfile;
-import minh.project.multishop.network.dtos.DTORequest.CreateOrderRequest;
-import minh.project.multishop.network.dtos.DTORequest.RateProductRequest;
-import minh.project.multishop.network.dtos.DTORequest.RegisterRequest;
-import minh.project.multishop.network.dtos.DTOResponse.GetListOrderResponse;
-import minh.project.multishop.network.dtos.DTOResponse.GetProductNameResponse;
-import minh.project.multishop.network.dtos.DTOResponse.OrderDetailResponse;
-import minh.project.multishop.network.dtos.DTOResponse.EditCartResponse;
-import minh.project.multishop.network.dtos.DTORequest.LoginRequest;
-import minh.project.multishop.network.dtos.DTORequest.RefreshAccessTokenRequest;
-import minh.project.multishop.network.dtos.DTORequest.EditCartRequest;
-import minh.project.multishop.network.dtos.DTOResponse.GetListProductResponse;
-import minh.project.multishop.network.dtos.DTOResponse.LoginResponse;
-import minh.project.multishop.network.dtos.DTOResponse.RefreshAccessTokenResponse;
+import minh.project.multishop.models.*;
+import minh.project.multishop.network.dtos.DTORequest.*;
+import minh.project.multishop.network.dtos.DTOResponse.*;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
+import retrofit2.http.*;
+
+import java.util.List;
 
 public interface IAppAPI {
 
@@ -36,7 +14,7 @@ public interface IAppAPI {
     @GET("products?page=1&page_size=220")
     Call<GetListProductResponse> getAllProduct();
 
-    @GET("products?page=1&page_size=20")
+    @GET("products/suggestion?page=1&page_size=20")
     Call<GetListProductResponse> getHomeListProduct();
 
     @GET("products/{id}")
@@ -96,6 +74,9 @@ public interface IAppAPI {
     @GET("user/orders?page=1")
     Call<GetListOrderResponse> getOrderByStatus(@Header("Authorization") String token, @Query("page_size") int size, @Query("status") String status);
 
+    @PUT("user/orders/{order_id}/cancel")
+    Call<OrderDetailResponse> cancelOrder(@Header("Authorization") String token, @Path("order_id") int orderID);
+
     //Review API
     @GET("ratings/{product_id}")
     Call<List<Rating>> getProductRating(@Path("product_id") int productID);
@@ -105,4 +86,7 @@ public interface IAppAPI {
 
     @GET("user/ratings")
     Call<List<Rating>> getMyRating(@Header("Authorization") String token, @Query("product") int productID);
+
+    @POST("user/ratings/{rating_id}/response")
+    Call<ReplyReviewResponse> replyReview(@Header("Authorization") String token, @Path("rating_id") int ratingID, @Body ReplyReviewRequest request);
 }

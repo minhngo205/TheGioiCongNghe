@@ -1,50 +1,41 @@
 package minh.project.multishop.activity.viewmodel;
 
-import static minh.project.multishop.base.BaseDialog.CANCEL_BUTTON;
-import static minh.project.multishop.base.BaseDialog.CONFIRM_BUTTON;
-import static minh.project.multishop.base.BaseDialog.CONTENT;
-import static minh.project.multishop.utils.CurrencyFormat.currencyFormat;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.*;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import minh.project.multishop.R;
+import minh.project.multishop.activity.CartActivity;
+import minh.project.multishop.activity.OrderSubmitActivity;
+import minh.project.multishop.adapter.CartAdapter;
+import minh.project.multishop.base.BaseActivityViewModel;
+import minh.project.multishop.database.entity.User;
+import minh.project.multishop.database.repository.UserDBRepository;
+import minh.project.multishop.databinding.ActivityCartBinding;
+import minh.project.multishop.dialog.BaseDialog;
+import minh.project.multishop.dialog.CustomProgress;
+import minh.project.multishop.models.CartItem;
+import minh.project.multishop.models.OrderItem;
+import minh.project.multishop.network.dtos.DTORequest.EditCartRequest;
+import minh.project.multishop.network.repository.CartRepository;
+import minh.project.multishop.utils.SwipeHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import minh.project.multishop.R;
-import minh.project.multishop.activity.CartActivity;
-import minh.project.multishop.activity.OrderSubmitActivity;
-import minh.project.multishop.adapter.CartAdapter;
-import minh.project.multishop.base.BaseActivityViewModel;
-import minh.project.multishop.base.BaseDialog;
-import minh.project.multishop.database.entity.User;
-import minh.project.multishop.database.repository.UserDBRepository;
-import minh.project.multishop.databinding.ActivityCartBinding;
-import minh.project.multishop.models.CartItem;
-import minh.project.multishop.models.OrderItem;
-import minh.project.multishop.network.dtos.DTORequest.EditCartRequest;
-import minh.project.multishop.network.repository.CartRepository;
-import minh.project.multishop.utils.CustomProgress;
-import minh.project.multishop.utils.SwipeHelper;
+import static minh.project.multishop.dialog.BaseDialog.*;
+import static minh.project.multishop.utils.CurrencyFormat.currencyFormat;
 
 public class CartActivityViewModel extends BaseActivityViewModel<CartActivity> {
 
     private ActivityCartBinding mBinding;
-    private final UserDBRepository dbRepository;
     private final CartRepository cartRepository;
     private final CartAdapter cartAdapter;
     private final User mUser;
@@ -70,9 +61,8 @@ public class CartActivityViewModel extends BaseActivityViewModel<CartActivity> {
         super(cartActivity);
         cartList = new ArrayList<>();
         checkedMap = new HashMap<>();
-        dbRepository = UserDBRepository.getInstance();
         cartRepository = CartRepository.getInstance();
-        mUser = dbRepository.getCurrentUser();
+        mUser = UserDBRepository.getInstance().getCurrentUser();
         cartAdapter = new CartAdapter(mActivity);
     }
 
@@ -94,7 +84,7 @@ public class CartActivityViewModel extends BaseActivityViewModel<CartActivity> {
         recyclerBagList.setAdapter(cartAdapter);
         recyclerBagList.setLayoutManager(new LinearLayoutManager(mActivity));
 
-        SwipeHelper swipeHelper = new SwipeHelper(mActivity, recyclerBagList, 150) {
+        SwipeHelper swipeHelper = new SwipeHelper(mActivity, recyclerBagList, 200) {
             @Override
             public void instantiateMyButton(RecyclerView.ViewHolder viewHolder, List<MyButton> buffer) {
 
@@ -239,8 +229,7 @@ public class CartActivityViewModel extends BaseActivityViewModel<CartActivity> {
         totalPrice = 0;
         totalQuantity = 0;
         if (null != cartList) {
-            for (int i = 0; i < cartList.size(); i++) {
-                CartItem item = cartList.get(i);
+            for (CartItem item : cartList) {
                 if (item.isChoose()) {
                     totalQuantity += item.getCount();
                     totalPrice += item.getProduct().getSalePrice() * item.getCount();

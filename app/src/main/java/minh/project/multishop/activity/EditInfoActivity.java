@@ -2,7 +2,6 @@ package minh.project.multishop.activity;
 
 import android.os.Bundle;
 import android.view.View;
-
 import minh.project.multishop.activity.viewmodel.EditInfoViewModel;
 import minh.project.multishop.base.BaseActivity;
 import minh.project.multishop.databinding.ActivityEditInfoBinding;

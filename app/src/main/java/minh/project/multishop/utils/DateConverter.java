@@ -1,7 +1,6 @@
 package minh.project.multishop.utils;
 
 import android.annotation.SuppressLint;
-
 import androidx.room.TypeConverter;
 
 import java.text.DateFormat;

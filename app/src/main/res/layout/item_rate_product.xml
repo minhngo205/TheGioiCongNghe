@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_marginHorizontal="@dimen/spacing_standard_new"
+    android:layout_marginVertical="@dimen/spacing_standard"
+    android:orientation="vertical"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/spacing_standard"
+    tools:ignore="MissingPrefix">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_standard_new"
+            android:layout_marginTop="@dimen/spacing_standard_new"
+            android:layout_marginEnd="@dimen/spacing_standard_new">
+
+            <TextView
+                style="@style/Heading"
+                android:layout_centerVertical="true"
+                android:text="Đánh giá sản phẩm đã mua" />
+
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/layout_product_view"
+            layout="@layout/item_order_list"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/spacing_standard_new"
+            android:background="@color/view_color" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_standard_new"
+            android:layout_marginEnd="@dimen/spacing_standard_new"
+            android:layout_marginTop="@dimen/spacing_standard_new">
+
+            <EditText
+                android:id="@+id/edtReview"
+                style="@style/TextInputEditTextStyle"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+                android:height="@dimen/_100sdp"
+                android:singleLine="false" />
+
+            <TextView
+                android:text="Bình luận"
+                style="@style/TextInputLayoutStyle" />
+
+        </RelativeLayout>
+
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/spacing_standard_new"
+            android:layout_marginTop="@dimen/spacing_standard_new"
+            android:layout_marginEnd="@dimen/spacing_standard_new"
+            android:numStars="5"
+            android:stepSize="1.0"
+            android:rating="5"
+            android:theme="@style/RatingBar" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmit"
+            style="@style/MaterialButtonStyle.Filled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_standard_new"
+            android:shadowColor="@color/colorPrimary"
+            android:text="Gửi đánh giá"/>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

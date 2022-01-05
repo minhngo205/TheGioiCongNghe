@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/nav_update"
+            android:title="Chỉnh sửa"/>
+    <item
+            android:id="@+id/nav_reply"
+            android:icon="@drawable/ic_trash_can_regular__1_"
+            android:title="Trả lời"/>
+</menu>

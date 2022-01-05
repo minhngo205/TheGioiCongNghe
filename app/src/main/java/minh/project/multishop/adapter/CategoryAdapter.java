@@ -8,14 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.List;
-
 import minh.project.multishop.R;
 import minh.project.multishop.models.Category;
+
+import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyViewHolder> {
 
@@ -54,7 +53,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
         holder.ivCategory.setImageResource(images[position]);
         holder.cateName.setText(category.getName());
-        holder.cateName.setTextColor(mContext.getResources().getColor(R.color.item_catalogue_no_select));
+        holder.cateName.setTextColor(ContextCompat.getColor(mContext, R.color.item_catalogue_no_select));
 
         holder.itemView.setOnClickListener(v -> {
             selectedItemPosition = position;
@@ -65,11 +64,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
         });
 
         if (selectedItemPosition == position){
-            holder.cardView.setBackgroundColor(mContext.getResources().getColor(R.color.red_type_1));
-            holder.cateName.setTextColor(mContext.getResources().getColor(R.color.white));
+            holder.cardView.setBackgroundColor(ContextCompat.getColor(mContext,R.color.red_type_1));
+            holder.cateName.setTextColor(ContextCompat.getColor(mContext, R.color.white));
         } else {
-            holder.cardView.setBackgroundColor(mContext.getResources().getColor(R.color.color_bdg_gray));
-            holder.cateName.setTextColor(mContext.getResources().getColor(R.color.item_catalogue_no_select));
+            holder.cardView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.color_bdg_gray));
+            holder.cateName.setTextColor(ContextCompat.getColor(mContext, R.color.item_catalogue_no_select));
         }
     }
 

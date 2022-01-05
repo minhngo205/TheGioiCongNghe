@@ -1,7 +1,6 @@
 package minh.project.multishop.database;
 
 import android.content.Context;
-
 import androidx.room.Room;
 
 public class DatabaseUtil {

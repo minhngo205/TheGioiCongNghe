@@ -1,7 +1,5 @@
 package minh.project.multishop.activity.viewmodel;
 
-import static minh.project.multishop.utils.CurrencyFormat.currencyFormat;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -10,43 +8,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
-
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-
-import java.util.ArrayList;
-
 import minh.project.multishop.R;
-import minh.project.multishop.activity.CartActivity;
-import minh.project.multishop.activity.OrderSubmitActivity;
-import minh.project.multishop.activity.ProductDetailActivity;
+import minh.project.multishop.activity.*;
 import minh.project.multishop.adapter.ProductViewPagerAdapter;
 import minh.project.multishop.base.BaseActivityViewModel;
 import minh.project.multishop.database.entity.User;
 import minh.project.multishop.database.repository.UserDBRepository;
 import minh.project.multishop.databinding.ActivityProductDetailBinding;
 import minh.project.multishop.databinding.DialogCartBuyLayoutBinding;
+import minh.project.multishop.dialog.CustomProgress;
 import minh.project.multishop.models.Image;
 import minh.project.multishop.models.OrderItem;
 import minh.project.multishop.models.Product;
 import minh.project.multishop.models.ProductSpecs;
-import minh.project.multishop.network.IAppAPI;
-import minh.project.multishop.network.RetroInstance;
 import minh.project.multishop.network.dtos.DTORequest.EditCartRequest;
 import minh.project.multishop.network.repository.CartRepository;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import minh.project.multishop.network.repository.ProductNetRepository;
+
+import java.util.ArrayList;
+
+import static minh.project.multishop.utils.CurrencyFormat.currencyFormat;
 
 public class ProductDetailViewModel extends BaseActivityViewModel<ProductDetailActivity> {
 
     private static final String TAG = "ProductDetailViewModel";
-    private MutableLiveData<Product> liveProductData;
     private static final int CACHE_PAGE_COUNT = 3;
     private ActivityProductDetailBinding productDetailBinding;
     private Product productDetail;
@@ -57,36 +46,11 @@ public class ProductDetailViewModel extends BaseActivityViewModel<ProductDetailA
     private TextView addButton;
     
     private final User mUser;
-    private final UserDBRepository dbRepository;
     private final CartRepository cartRepository;
+    
+    private final ProductNetRepository productNetRepository;
 
-    public LiveData<Product> getProductData(){
-        if(liveProductData==null){
-            liveProductData = new MutableLiveData<>();
-            loadProductData(mActivity.getProductID());
-        }
-        return liveProductData;
-    }
-
-    private void loadProductData(int proId) {
-        IAppAPI api = RetroInstance.getRetroInstance().create(IAppAPI.class);
-        Call<Product> call = api.getProductByID(proId);
-        call.enqueue(new Callback<Product>() {
-            @Override
-            public void onResponse(@NonNull Call<Product> call, @NonNull Response<Product> response) {
-                if(response.isSuccessful()&&response.body()!=null){
-                    liveProductData.postValue(response.body());
-                } else {
-                    liveProductData.postValue(null);
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<Product> call, @NonNull Throwable t) {
-                liveProductData.postValue(null);
-            }
-        });
-    }
+    private final CustomProgress progressDialog;
 
     /**
      * constructor
@@ -95,9 +59,11 @@ public class ProductDetailViewModel extends BaseActivityViewModel<ProductDetailA
      */
     public ProductDetailViewModel(ProductDetailActivity productDetailActivity) {
         super(productDetailActivity);
-        dbRepository = UserDBRepository.getInstance();
+        UserDBRepository dbRepository = UserDBRepository.getInstance();
         mUser = dbRepository.getCurrentUser();
         cartRepository = CartRepository.getInstance();
+        productNetRepository = ProductNetRepository.getInstance();
+        progressDialog = CustomProgress.getInstance();
     }
 
     @Override
@@ -119,6 +85,7 @@ public class ProductDetailViewModel extends BaseActivityViewModel<ProductDetailA
         productDetailBinding.textName.setText(productDetail.getProductName());
         productDetailBinding.textBrand.setText(productDetail.getBrand().getBrandName());
         productDetailBinding.textDescription.setText(Html.fromHtml(productDetail.getShortDes()));
+        productDetailBinding.informationLayout.setOnClickListener(mActivity);
         initSpecsTable();
     }
 
@@ -130,7 +97,7 @@ public class ProductDetailViewModel extends BaseActivityViewModel<ProductDetailA
             TextView tv_value = tableRow.findViewById(R.id.tv_value);
 
             if ("".equals(specs.getValue())) {
-                tv_name.setTextColor(mActivity.getResources().getColor(R.color.red_type_2));
+                tv_name.setTextColor(ContextCompat.getColor(mActivity,R.color.red_type_2));
             }
 
             tv_name.setText(specs.getName());
@@ -141,7 +108,8 @@ public class ProductDetailViewModel extends BaseActivityViewModel<ProductDetailA
     }
 
     public void initProductView() {
-        getProductData().observe(mActivity, this::updateView);
+        progressDialog.showProgress(mActivity,"Đang tải...",false);
+        productNetRepository.getProductByID(mActivity.getProductID()).observe(mActivity, this::updateView);
     }
 
     private void updateView(Product product) {
@@ -152,6 +120,7 @@ public class ProductDetailViewModel extends BaseActivityViewModel<ProductDetailA
         }
         productDetail = product;
         initView();
+        progressDialog.hideProgress();
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -174,8 +143,15 @@ public class ProductDetailViewModel extends BaseActivityViewModel<ProductDetailA
                 break;
             }
             case R.id.layout_evaluate:{
-                Intent reviewIntent = new Intent(mActivity, RatingActivity.class);
-                reviewIntent.putExtra("PRODUCT_ID",productDetail.getID());
+                Intent reviewIntent = new Intent(mActivity, ReviewActivity.class);
+                OrderItem product = new OrderItem(
+                        productDetail.productID,
+                        productDetail.imgThumbnail,
+                        productDetail.productName,
+                        productDetail.salePrice,
+                        -1
+                );
+                reviewIntent.putExtra("PRODUCT_INFO",product);
                 reviewIntent.putExtra("AVG_RATING",productDetail.getAvgRate());
                 mActivity.startActivity(reviewIntent);
                 break;
@@ -183,7 +159,7 @@ public class ProductDetailViewModel extends BaseActivityViewModel<ProductDetailA
             case R.id.btn_add:{
                 ++productCount;
                 textViewCount.setText(String.valueOf(productCount));
-                delButton.setTextColor(mActivity.getResources().getColor(R.color.red));
+                delButton.setTextColor(ContextCompat.getColor(mActivity,R.color.red));
                 delButton.setBackgroundResource(R.drawable.circle_add_delete_type_red);
                 break;
             }
@@ -192,10 +168,22 @@ public class ProductDetailViewModel extends BaseActivityViewModel<ProductDetailA
                     --productCount;
                     textViewCount.setText(String.valueOf(productCount));
                     if (productCount == 1) {
-                        delButton.setTextColor(mActivity.getResources().getColor(R.color.black));
+                        delButton.setTextColor(ContextCompat.getColor(mActivity,R.color.black));
                         delButton.setBackgroundResource(R.drawable.circle_add_delete_type);
                     }
                 }
+                break;
+            }
+            case R.id.information_layout:{
+                if(productDetail.description.length()<=0){
+                    Toast.makeText(mActivity, "Chưa có thông tin chi tiết về sản phẩm", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Intent desIntent = new Intent(mActivity, ProductDescriptionActivity.class);
+                desIntent.putExtra("DESCRIPTION",productDetail.description);
+                mActivity.startActivity(desIntent);
+
                 break;
             }
             default: break;
@@ -227,7 +215,7 @@ public class ProductDetailViewModel extends BaseActivityViewModel<ProductDetailA
             binding.productPrice.setPaintFlags(productDetailBinding.textDisplayPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
         binding.productSalePrice.setText(currencyFormat(productDetail.getSalePrice()));
-        addButton.setTextColor(mActivity.getResources().getColor(R.color.red));
+        addButton.setTextColor(ContextCompat.getColor(mActivity,R.color.red));
         addButton.setBackgroundResource(R.drawable.circle_add_delete_type_red);
 
         addButton.setOnClickListener(mActivity);

@@ -3,10 +3,11 @@ package minh.project.multishop.activity.viewmodel;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import minh.project.multishop.R;
 import minh.project.multishop.activity.LoginActivity;
 import minh.project.multishop.base.BaseActivityViewModel;
@@ -18,12 +19,69 @@ import minh.project.multishop.network.dtos.DTORequest.LoginRequest;
 import minh.project.multishop.network.dtos.DTORequest.RegisterRequest;
 import minh.project.multishop.network.repository.UserNetRepository;
 
-
 public class LoginActivityViewModel extends BaseActivityViewModel<LoginActivity> {
 
     private final UserNetRepository netRepository;
     private final ActivityLoginBinding mBinding;
     private final UserDBRepository dbRepository;
+
+    private final TextWatcher loginWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            checkLoginForEmptyValues();
+        }
+    };
+
+    private final TextWatcher registerWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            checkRegisterForEmptyValues();
+        }
+    };
+
+    void checkLoginForEmptyValues(){
+
+        String username = String.valueOf(mBinding.email.getText());
+        String password = String.valueOf(mBinding.password.getText());
+
+        mBinding.continueButton.setEnabled(!username.equals("") && !password.equals(""));
+    }
+
+    void checkRegisterForEmptyValues(){
+
+        String name = String.valueOf(mBinding.name.getText());
+        String username = String.valueOf(mBinding.user2.getText());
+        String password = String.valueOf(mBinding.password2.getText());
+        String rePassword = String.valueOf(mBinding.reenterPassword.getText());
+
+        mBinding.signupButton.setEnabled(
+                !username.equals("") &&
+                !password.equals("") &&
+                !name.equals("") &&
+                !rePassword.equals("")
+        );
+    }
+
 
     /**
      * constructor
@@ -41,8 +99,20 @@ public class LoginActivityViewModel extends BaseActivityViewModel<LoginActivity>
     public void initView() {
         mBinding.signin.setOnClickListener(mActivity);
         mBinding.signup.setOnClickListener(mActivity);
+
+        checkLoginForEmptyValues();
+        checkRegisterForEmptyValues();
+
         mBinding.continueButton.setOnClickListener(mActivity);
         mBinding.signupButton.setOnClickListener(mActivity);
+
+        mBinding.email.addTextChangedListener(loginWatcher);
+        mBinding.password.addTextChangedListener(loginWatcher);
+
+        mBinding.name.addTextChangedListener(registerWatcher);
+        mBinding.user2.addTextChangedListener(registerWatcher);
+        mBinding.password2.addTextChangedListener(registerWatcher);
+        mBinding.reenterPassword.addTextChangedListener(registerWatcher);
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -62,16 +132,7 @@ public class LoginActivityViewModel extends BaseActivityViewModel<LoginActivity>
             case R.id.continue_button:{
                 String username = String.valueOf(mBinding.email.getText());
                 String password = String.valueOf(mBinding.password.getText());
-                if(username.trim().isEmpty()){
-                    mBinding.email.setError("Cần có tên đăng nhập");
-                    mBinding.email.requestFocus();
-                    return;
-                }
-                if(password.trim().isEmpty()){
-                    mBinding.password.setError("Cần có mật khẩu");
-                    mBinding.password.requestFocus();
-                    return;
-                }
+
                 login(username.trim(),password.trim());
                 break;
             }
@@ -81,22 +142,7 @@ public class LoginActivityViewModel extends BaseActivityViewModel<LoginActivity>
                 String password = String.valueOf(mBinding.password2.getText());
                 String rePassword = String.valueOf(mBinding.reenterPassword.getText());
 
-                if (name.trim().isEmpty()){
-                    mBinding.name.setError("Cần có họ và tên");
-                    mBinding.name.requestFocus();
-                    return;
-                }
-                if(username.trim().isEmpty()){
-                    mBinding.user2.setError("Cần có tên đăng nhập");
-                    mBinding.user2.requestFocus();
-                    return;
-                }
-                if (password.trim().isEmpty()){
-                    mBinding.password2.setError("Cần có mật khẩu");
-                    mBinding.password2.requestFocus();
-                    return;
-                }
-                if(rePassword.trim().isEmpty()||!rePassword.trim().equals(password.trim())){
+                if(!rePassword.equals(password)){
                     mBinding.reenterPassword.setError("Cần nhập lại mật khẩu đúng với mật khẩu cần đăng ký");
                     mBinding.reenterPassword.requestFocus();
                     return;

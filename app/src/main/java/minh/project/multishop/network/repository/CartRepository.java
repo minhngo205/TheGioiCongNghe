@@ -3,9 +3,6 @@ package minh.project.multishop.network.repository;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
-import java.util.List;
-
 import minh.project.multishop.models.CartItem;
 import minh.project.multishop.network.IAppAPI;
 import minh.project.multishop.network.RetroInstance;
@@ -14,6 +11,8 @@ import minh.project.multishop.network.dtos.DTOResponse.EditCartResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import java.util.List;
 
 public class CartRepository {
     private final IAppAPI api;

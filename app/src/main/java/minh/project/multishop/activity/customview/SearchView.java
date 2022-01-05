@@ -7,17 +7,11 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.*;
+import minh.project.multishop.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
-import minh.project.multishop.R;
 
 public class SearchView extends LinearLayout {
 
@@ -51,6 +45,11 @@ public class SearchView extends LinearLayout {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (editText.getText().toString().equals("")) {
+                    ivClear.setVisibility(View.GONE);
+                } else {
+                    ivClear.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override

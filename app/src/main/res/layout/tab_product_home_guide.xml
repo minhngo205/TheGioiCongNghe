@@ -55,11 +55,11 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:padding="2dp"
-            android:maxWidth="32dp"
-            android:maxHeight="32dp"
+            android:maxWidth="35dp"
+            android:maxHeight="35dp"
             android:minWidth="30dp"
             android:minHeight="30dp"
-            android:src="@mipmap/icon_comment"/>
+            android:src="@mipmap/rating"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -86,11 +86,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:maxWidth="32dp"
-            android:maxHeight="32dp"
+            android:maxWidth="35dp"
+            android:maxHeight="35dp"
             android:minWidth="30dp"
             android:minHeight="30dp"
-            android:src="@mipmap/outline_shopping_cart_black_48dp" />
+            android:src="@mipmap/trolley" />
 
         <TextView
             android:layout_width="wrap_content"

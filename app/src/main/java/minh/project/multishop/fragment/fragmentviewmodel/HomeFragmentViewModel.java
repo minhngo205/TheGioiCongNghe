@@ -8,47 +8,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Interpolator;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Scroller;
-import android.widget.Toast;
-
+import android.widget.*;
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-
 import com.facebook.shimmer.ShimmerFrameLayout;
+import minh.project.multishop.R;
+import minh.project.multishop.adapter.HomeProductAdapter;
+import minh.project.multishop.adapter.HomeViewPagerAdapter;
+import minh.project.multishop.base.BaseFragmentViewModel;
+import minh.project.multishop.fragment.HomeFragment;
+import minh.project.multishop.network.repository.ProductNetRepository;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import minh.project.multishop.R;
-import minh.project.multishop.adapter.HomeProductAdapter;
-import minh.project.multishop.adapter.HomeViewPagerAdapter;
-import minh.project.multishop.base.BaseFragmentViewModel;
-import minh.project.multishop.databinding.FragmentHomeBinding;
-import minh.project.multishop.fragment.HomeFragment;
-import minh.project.multishop.models.Product;
-import minh.project.multishop.network.IAppAPI;
-import minh.project.multishop.network.RetroInstance;
-import minh.project.multishop.network.dtos.DTOResponse.GetListProductResponse;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class HomeFragmentViewModel extends BaseFragmentViewModel<HomeFragment> {
 
     private static final String TAG = "HomeFragmentViewModel";
     private static final int VIEW_PAGER_HEIGHT = 846;
-    private MutableLiveData<List<Product>> liveData;
-    private FragmentHomeBinding homeBinding;
     private HomeProductAdapter adapter;
     private ShimmerFrameLayout mShimmerViewContainer;
 
@@ -58,6 +40,8 @@ public class HomeFragmentViewModel extends BaseFragmentViewModel<HomeFragment> {
     private RecyclerView rvRecommendation;
     private ViewPager viewPager;
     private LinearLayout lvDot;
+
+    private final ProductNetRepository productNetRepository;
 
 
     public HomeImageHandler getHandler() {
@@ -72,41 +56,12 @@ public class HomeFragmentViewModel extends BaseFragmentViewModel<HomeFragment> {
     public HomeFragmentViewModel(HomeFragment homeFragment) {
         super(homeFragment);
         handler = new HomeImageHandler(new WeakReference<>(this));
-    }
-
-    public LiveData<List<Product>> getListProduct(){
-        if(liveData==null){
-            liveData = new MutableLiveData<>();
-            loadProductData();
-        }
-        return liveData;
-    }
-
-    private void loadProductData() {
-        IAppAPI api = RetroInstance.getAppAPI();
-        Call<GetListProductResponse> call = api.getHomeListProduct();
-        call.enqueue(new Callback<GetListProductResponse>() {
-            @Override
-            public void onResponse(@NonNull Call<GetListProductResponse> call, @NonNull Response<GetListProductResponse> response) {
-                if(response.isSuccessful()){
-                    if(response.body()!=null){
-                        liveData.postValue(response.body().productList);
-                    } else {
-                        liveData.postValue(null);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<GetListProductResponse> call, @NonNull Throwable t) {
-                liveData.postValue(null);
-            }
-        });
+        productNetRepository = ProductNetRepository.getInstance();
     }
 
     @Override
     public void initView(View view) {
-        homeBinding = mFragment.getHomeBinding();
+        minh.project.multishop.databinding.FragmentHomeBinding homeBinding = mFragment.getHomeBinding();
 
         rvRecommendation = homeBinding.recyclerRecommendation;
         viewPager = homeBinding.pagerHome;
@@ -123,7 +78,7 @@ public class HomeFragmentViewModel extends BaseFragmentViewModel<HomeFragment> {
 
     public void initHomeProductRecyclerView() {
 
-        getListProduct().observe(mFragment.getViewLifecycleOwner(), products -> {
+        productNetRepository.getHomeProduct().observe(mFragment.getViewLifecycleOwner(), products -> {
             if(products==null){
                 Toast.makeText(mFragment.getContext(), "Could not get product Data", Toast.LENGTH_SHORT).show();
                 return;
@@ -218,8 +173,8 @@ public class HomeFragmentViewModel extends BaseFragmentViewModel<HomeFragment> {
             return;
         }
         int size = dots.size();
-        for (int i = 0; i < size; i++) {
-            dots.get(i).setBackgroundResource(R.drawable.dot_no_selected);
+        for (View dot : dots) {
+            dot.setBackgroundResource(R.drawable.dot_no_selected);
         }
         dots.get(position % size).setBackgroundResource(R.drawable.dot_selected);
     }
@@ -237,7 +192,7 @@ public class HomeFragmentViewModel extends BaseFragmentViewModel<HomeFragment> {
             FixedSpeedScroller scroller = new FixedSpeedScroller(mViewPager.getContext(),
                     new AccelerateInterpolator());
             field.set(mViewPager, scroller);
-            scroller.setmDuration(1000);
+            scroller.setDuration(1000);
         } catch (RuntimeException e) {
             throw e;
         } catch (Exception e) {
@@ -345,10 +300,10 @@ public class HomeFragmentViewModel extends BaseFragmentViewModel<HomeFragment> {
         }
 
         /**
-         * setmDuration
+         * setDuration
          * @param time ms
          */
-        public void setmDuration(int time) {
+        public void setDuration(int time) {
             mDuration = time;
         }
 

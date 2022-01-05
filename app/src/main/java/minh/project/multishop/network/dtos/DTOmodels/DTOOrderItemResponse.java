@@ -1,10 +1,8 @@
 package minh.project.multishop.network.dtos.DTOmodels;
 
 import com.google.gson.annotations.SerializedName;
-
 import minh.project.multishop.models.OrderItem;
 import minh.project.multishop.models.Product;
-
 
 public class DTOOrderItemResponse {
     @SerializedName("count")

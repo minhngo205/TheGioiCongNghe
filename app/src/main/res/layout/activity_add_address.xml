@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="userInfo"
+            type="minh.project.multishop.database.entity.UserInfo" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        tools:context=".activity.AddAddressActivity">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rlUseCurrentLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_standard_new"
+                    android:layout_marginTop="@dimen/spacing_standard_new"
+                    android:layout_marginEnd="@dimen/spacing_standard_new"
+                    android:background="@drawable/bg_ractangal"
+                    android:backgroundTint="#F1F1F1"
+                    android:padding="@dimen/spacing_middle">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:drawablePadding="@dimen/spacing_standard"
+                        android:gravity="center"
+                        android:text="Sử dụng vị trí hiện tại"
+                        android:textColor="#4353FA"
+                        android:textSize="@dimen/font_size_medium"
+                        tools:ignore="MissingPrefix"
+                        app:drawableStartCompat="@drawable/ic_my_location"
+                        app:drawableTint="#4353FA" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_standard_new"
+                    android:layout_marginEnd="@dimen/spacing_standard_new"
+                    android:layout_marginTop="@dimen/spacing_standard_new">
+
+                    <EditText
+                        android:id="@+id/edtName"
+                        style="@style/TextInputEditTextStyle"
+                        android:lines="2"
+                        android:text="@{userInfo.name}" />
+
+                    <TextView
+                        android:text="Họ và tên"
+                        style="@style/TextInputLayoutStyle" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_standard_new"
+                    android:layout_marginEnd="@dimen/spacing_standard_new"
+                    android:layout_marginTop="@dimen/spacing_standard_new">
+
+                    <EditText
+                        android:id="@+id/edtAddress1"
+                        style="@style/TextInputEditTextStyle"
+                        android:text="@{userInfo.address}"
+                        android:singleLine="false" />
+
+                    <TextView
+                        style="@style/TextInputLayoutStyle"
+                        android:text="Địa chỉ" />
+
+                </RelativeLayout>
+
+                <!--            <RelativeLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_marginStart="@dimen/spacing_standard_new"-->
+                <!--                android:layout_marginEnd="@dimen/spacing_standard_new"-->
+                <!--                android:layout_marginTop="@dimen/spacing_standard_new">-->
+
+                <!--                <EditText-->
+                <!--                    android:id="@+id/edtAddress2"-->
+                <!--                    style="@style/TextInputEditTextStyle"-->
+                <!--                    android:singleLine="false" />-->
+
+                <!--                <TextView-->
+                <!--                    style="@style/TextInputLayoutStyle"-->
+                <!--                    android:text="@string/hint_address_line_2" />-->
+
+                <!--            </RelativeLayout>-->
+
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_marginStart="@dimen/spacing_standard_new"-->
+                <!--                android:layout_marginEnd="@dimen/spacing_standard_new"-->
+                <!--                android:layout_marginTop="@dimen/spacing_standard_new">-->
+
+                <!--                <RelativeLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:layout_marginEnd="@dimen/spacing_standard"-->
+
+                <!--                    >-->
+
+                <!--                    <EditText-->
+                <!--                        android:id="@+id/edtCity"-->
+                <!--                        style="@style/TextInputEditTextStyle"-->
+                <!--                        android:singleLine="false" />-->
+
+                <!--                    <TextView-->
+                <!--                        style="@style/TextInputLayoutStyle"-->
+                <!--                        android:text="@string/hint_city" />-->
+
+                <!--                </RelativeLayout>-->
+
+                <!--                <RelativeLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:layout_marginStart="@dimen/spacing_standard"-->
+
+                <!--                    >-->
+
+                <!--                    <EditText-->
+                <!--                        android:id="@+id/edtState"-->
+                <!--                        style="@style/TextInputEditTextStyle"-->
+                <!--                        />-->
+
+                <!--                    <TextView-->
+                <!--                        android:text="@string/hint_state"-->
+                <!--                        style="@style/TextInputLayoutStyle" />-->
+
+                <!--                </RelativeLayout>-->
+
+
+
+                <!--            </LinearLayout>-->
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_marginStart="@dimen/spacing_standard_new"-->
+                <!--                android:layout_marginEnd="@dimen/spacing_standard_new"-->
+                <!--                android:layout_marginTop="@dimen/spacing_standard_new">-->
+
+                <!--                <RelativeLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:layout_marginEnd="@dimen/spacing_standard"-->
+
+                <!--                    >-->
+
+                <!--                    <EditText-->
+                <!--                        android:id="@+id/edtCountry"-->
+                <!--                        style="@style/TextInputEditTextStyle"-->
+                <!--                        />-->
+
+                <!--                    <TextView-->
+                <!--                        android:text="@string/lbl_country"-->
+                <!--                        style="@style/TextInputLayoutStyle" />-->
+
+                <!--                </RelativeLayout>-->
+
+                <!--                <RelativeLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:layout_marginStart="@dimen/spacing_standard"-->
+
+                <!--                    >-->
+
+                <!--                    <EditText-->
+                <!--                        android:id="@+id/edtPinCode"-->
+                <!--                        android:inputType="number"-->
+                <!--                        style="@style/TextInputEditTextStyle"-->
+                <!--                        />-->
+
+                <!--                    <TextView-->
+                <!--                        android:text="@string/hint_pin_code"-->
+                <!--                        style="@style/TextInputLayoutStyle" />-->
+
+                <!--                </RelativeLayout>-->
+
+
+
+                <!--            </LinearLayout>-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_standard_new"
+                    android:layout_marginEnd="@dimen/spacing_standard_new"
+                    android:layout_marginTop="@dimen/spacing_standard_new">
+
+                    <EditText
+                        android:id="@+id/edtMobileNo"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="number"
+                        android:text="@{userInfo.phone_number}"
+                        android:maxEms="15" />
+
+                    <TextView
+                        android:text="Số điện thoại"
+                        style="@style/TextInputLayoutStyle" />
+
+                </RelativeLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/MaterialButtonStyle.Filled"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:layout_marginStart="@dimen/spacing_standard_new"
+                    android:layout_marginEnd="@dimen/spacing_standard_new"
+                    android:text="Lưu địa chỉ" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>

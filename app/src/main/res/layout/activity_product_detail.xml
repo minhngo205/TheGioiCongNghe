@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.ProductDetailActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -224,35 +226,33 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="6dp"-->
-<!--                android:background="@color/product_layout"-->
-<!--                android:padding="6dp">-->
+            <RelativeLayout
+                android:id="@+id/information_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@color/product_layout"
+                android:padding="6dp">
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_gravity="center_vertical"-->
-<!--                    android:padding="8dp"-->
-<!--                    android:text="@string/product_capacity"-->
-<!--                    android:textColor="@color/product_text"-->
-<!--                    android:textSize="12sp"-->
-<!--                    android:textStyle="bold" />-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="8dp"
+                    android:text="@string/product_capacity"
+                    android:textColor="@color/product_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/text_capacity"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_gravity="center_vertical"-->
-<!--                    android:background="@drawable/corner_text_type"-->
-<!--                    android:padding="8dp"-->
-<!--                    android:text="@string/product_capacity"-->
-<!--                    android:textColor="@color/red"-->
-<!--                    android:textSize="12sp"-->
-<!--                    android:textStyle="bold" />-->
-<!--            </LinearLayout>-->
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

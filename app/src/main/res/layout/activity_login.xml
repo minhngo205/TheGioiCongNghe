@@ -4,6 +4,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical">
 
@@ -45,7 +46,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/welcomeback"
                 android:layout_marginTop="15dp"
-                android:text="Đăng nhập để khám phá những chức năng mới của cửa hàng"
+                android:text="Đăng nhập để khám phá \n những chức năng mới của cửa hàng"
                 android:textSize="13sp"
                 android:gravity="center"
                 android:paddingLeft="70dp"
@@ -129,18 +130,18 @@
 
             <Button
                 android:id="@+id/continue_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rememberme_textview"
                 android:layout_marginTop="55dp"
                 android:text="Đăng nhập"
-                android:paddingStart="50dp"
-                android:paddingEnd="50dp"
                 android:textAllCaps="false"
                 android:textSize="20sp"
-                android:background="@drawable/continue_background"
+                android:background="@drawable/continue_background_selector"
                 android:textColor="@color/white" />
 
             <LinearLayout
@@ -206,7 +207,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/create_account"
                 android:layout_marginTop="15dp"
-                android:text="Tạo tài khoản để khám phá những chức năng của cửa hàng"
+                android:text="Tạo tài khoản để khám phá \n những chức năng của cửa hàng"
                 android:textSize="13sp"
                 android:gravity="center"
                 android:paddingLeft="70dp"
@@ -312,18 +313,18 @@
 
             <Button
                 android:id="@+id/signup_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/reenter_password_textinputlayout"
                 android:text="Đăng ký"
-                android:paddingStart="50dp"
-                android:paddingEnd="50dp"
                 android:layout_marginTop="40dp"
                 android:textAllCaps="false"
                 android:textSize="20sp"
-                android:background="@drawable/continue_background"
+                android:background="@drawable/continue_background_selector"
                 android:textColor="@color/white" />
 
             <LinearLayout

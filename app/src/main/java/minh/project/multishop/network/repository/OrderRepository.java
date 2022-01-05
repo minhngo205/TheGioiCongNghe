@@ -3,7 +3,6 @@ package minh.project.multishop.network.repository;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import minh.project.multishop.network.IAppAPI;
 import minh.project.multishop.network.RetroInstance;
 import minh.project.multishop.network.dtos.DTORequest.CreateOrderRequest;
@@ -28,7 +27,7 @@ public class OrderRepository {
         return instance;
     }
 
-    public LiveData<OrderDetailResponse> getOrderData(String token, CreateOrderRequest request){
+    public LiveData<OrderDetailResponse> getCreateOrderData(String token, CreateOrderRequest request){
         orderData = new MutableLiveData<>();
         loadCreateOrder(token, request);
         return orderData;
@@ -46,6 +45,17 @@ public class OrderRepository {
         return listOrderData;
     }
 
+    public LiveData<OrderDetailResponse> cancelOrder(String token, int orderID){
+        orderData = new MutableLiveData<>();
+        loadCancelOrder(token,orderID);
+        return orderData;
+    }
+
+    private void loadCancelOrder(String token, int orderID) {
+        Call<OrderDetailResponse> call = api.cancelOrder("Bearer "+token,orderID);
+        loadOrderDetailAPI(call);
+    }
+
     private void loadListOrderData(String token, String status) {
         Call<GetListOrderResponse> call = api.getTotalFirst("Bearer "+token);
         call.enqueue(new Callback<GetListOrderResponse>() {
@@ -59,7 +69,7 @@ public class OrderRepository {
 
             @Override
             public void onFailure(@NonNull Call<GetListOrderResponse> call, @NonNull Throwable t) {
-
+                listOrderData.postValue(null);
             }
         });
     }
@@ -83,23 +93,15 @@ public class OrderRepository {
 
     private void loadOrderDataByID(String token, int orderID) {
         Call<OrderDetailResponse> call = api.getOrderDetail("Bearer "+token,orderID);
-        call.enqueue(new Callback<OrderDetailResponse>() {
-            @Override
-            public void onResponse(@NonNull Call<OrderDetailResponse> call, @NonNull Response<OrderDetailResponse> response) {
-                if(response.isSuccessful()){
-                    orderData.postValue(response.body());
-                } else orderData.postValue(null);
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<OrderDetailResponse> call, @NonNull Throwable t) {
-                orderData.postValue(null);
-            }
-        });
+        loadOrderDetailAPI(call);
     }
 
     private void loadCreateOrder(String token, CreateOrderRequest request) {
         Call<OrderDetailResponse> call = api.createOrder("Bearer "+token,request);
+        loadOrderDetailAPI(call);
+    }
+
+    private void loadOrderDetailAPI(Call<OrderDetailResponse> call) {
         call.enqueue(new Callback<OrderDetailResponse>() {
             @Override
             public void onResponse(@NonNull Call<OrderDetailResponse> call, @NonNull Response<OrderDetailResponse> response) {

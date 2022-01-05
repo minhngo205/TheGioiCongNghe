@@ -2,16 +2,10 @@ package minh.project.multishop.fragment.fragmentviewmodel;
 
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.facebook.shimmer.ShimmerFrameLayout;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import minh.project.multishop.adapter.HomeProductAdapter;
 import minh.project.multishop.base.BaseFragmentViewModel;
 import minh.project.multishop.databinding.FragmentNewInBinding;
@@ -19,6 +13,8 @@ import minh.project.multishop.fragment.NewInFragment;
 import minh.project.multishop.models.Product;
 import minh.project.multishop.network.repository.ProductNetRepository;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class NewInFragmentViewModel extends BaseFragmentViewModel<NewInFragment> {
 

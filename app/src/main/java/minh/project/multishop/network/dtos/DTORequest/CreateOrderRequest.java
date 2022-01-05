@@ -1,8 +1,8 @@
 package minh.project.multishop.network.dtos.DTORequest;
 
-import java.util.List;
-
 import minh.project.multishop.network.dtos.DTOmodels.DTOOrderItemRequest;
+
+import java.util.List;
 
 public class CreateOrderRequest {
     public String name;
